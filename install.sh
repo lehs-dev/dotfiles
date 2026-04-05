@@ -10,7 +10,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "🔑 Nhập mật khẩu để cài đặt các gói cần thiết:"
 sudo -v
 
-# 2. Cài đặt các phần mềm phụ trợ (Fedora)
+# 2. Cài đặt các phần mềm phụ trợ
 echo "📦 Đang cài đặt lsd, fastfetch, starship..."
 sudo dnf install -y lsd fastfetch dconf
 curl -sS https://starship.rs/install.sh | sh -s -- -y
@@ -32,18 +32,33 @@ echo "⚙️ Đang cấu hình bashrc..."
 rm -f ~/.bashrc
 ln -s "$DOTFILES_DIR/bash/.bashrc" ~/.bashrc
 
-# 6. Phục hồi MÃ NGUỒN GNOME Extensions
+# 6. Phục hồi Mã nguồn Extensions
 echo "🧩 Đang nạp mã nguồn Extensions..."
 mkdir -p ~/.local/share/gnome-shell/extensions/
-# Thêm chữ gnome/ vào trước chữ extensions
 cp -r "$DOTFILES_DIR/gnome/extensions/"* ~/.local/share/gnome-shell/extensions/
 
-# 7. Bơm dữ liệu cấu hình GNOME & Bật Extension (Tuyệt chiêu cuối)
-echo "🧠 Đang áp dụng thiết lập hệ thống và kích hoạt Extension..."
+# 7. Mở khóa Extension an toàn cho GNOME
+echo "🔓 Mở khóa tương thích Extension..."
+gsettings set org.gnome.shell disable-extension-version-validation true
+gsettings set org.gnome.shell disable-user-extensions false
+
+# 8. Bơm dữ liệu cấu hình GNOME (Tuyệt chiêu CHIA ĐỂ TRỊ)
+echo "🧠 Đang áp dụng thiết lập hệ thống (Bypass giới hạn dconf)..."
 TMP_DCONF="/tmp/gnome_patched.dconf"
 sed "s|/home/sonle|/home/$USER|g" "$DOTFILES_DIR/gnome/gnome_full_backup.dconf" > "$TMP_DCONF"
-dconf load /org/gnome/ < "$TMP_DCONF"
-rm -f "$TMP_DCONF"
+
+# Tạo thư mục tạm để chứa các phần dconf đã bị cắt nhỏ
+mkdir -p /tmp/dconf_split
+# Dùng awk cắt file thành từng block riêng biệt dựa vào dòng trống
+awk -v RS='' '{print $0 "\n" > ("/tmp/dconf_split/part_" NR ".dconf")}' "$TMP_DCONF"
+
+# Nạp từng block một cách độc lập. Lỗi block nào bỏ qua block đó, không làm hỏng toàn cục!
+for file in /tmp/dconf_split/part_*.dconf; do
+    dconf load /org/gnome/ < "$file" >/dev/null 2>&1
+done
+
+# Dọn dẹp rác
+rm -rf /tmp/dconf_split "$TMP_DCONF"
 
 echo "🎉 Xong! Mọi thứ đã hoàn tất."
-echo "⚠️ CHÚ Ý QUAN TRỌNG: Hãy Log out (Đăng xuất) và Log in (Đăng nhập) lại để GNOME nhận diện thư mục extensions mới copy nhé!"
+echo "⚠️ CHÚ Ý QUAN TRỌNG: Hãy Log out (Đăng xuất) và Log in (Đăng nhập) lại ngay bây giờ!"
