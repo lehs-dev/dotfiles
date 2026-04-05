@@ -1,0 +1,54 @@
+{
+    // --- 1. GIAO DIỆN & THẨM MỸ (VISUALS) ---
+    // Font chữ hỗ trợ Ligatures (nối ký tự logic). Cần cài JetBrains Mono hoặc Fira Code.
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true, // Biến => thành mũi tên đẹp mắt
+    "editor.fontSize": 12,
+    "editor.lineHeight": 24, // Tăng khoảng cách dòng giúp code "dễ thở" hơn
+    "editor.cursorBlinking": "smooth", // Con trỏ nhấp nháy mượt mà
+    "editor.cursorSmoothCaretAnimation": "on", // Con trỏ di chuyển mượt như lướt web
+    "editor.renderWhitespace": "selection", // Chỉ hiện dấu cách/tab khi bôi đen (đỡ rối mắt)
+    // --- 2. FORMAT & CODE THÔNG MINH (PRODUCTIVITY) ---
+    "editor.formatOnSave": true, // Tự động căn chỉnh code ngay khi lưu (QUAN TRỌNG)
+    "editor.formatOnPaste": true, // Căn chỉnh code khi copy-paste vào
+    "editor.wordWrap": "off", // Tự động xuống dòng nếu code quá dài (không cần kéo ngang)
+    "editor.bracketPairColorization.enabled": true, // Tô màu các cặp ngoặc () {} [] khác nhau để dễ nhìn
+    "editor.guides.bracketPairs": true, // Hiện đường kẻ nối các cặp ngoặc
+    "editor.suggestSelection": "first", // Luôn chọn gợi ý code đầu tiên thông minh nhất
+    "editor.snippetSuggestions": "top", // Đưa các đoạn code mẫu lên đầu danh sách gợi ý
+    // --- 3. QUẢN LÝ FILE & EDITOR (WORKBENCH) ---
+    "files.autoSave": "afterDelay", // Tự lưu file khi bạn bấm sang cửa sổ khác (không lo mất điện)
+    "workbench.editor.enablePreview": false, // Click vào file là mở luôn (không mở dạng xem trước in nghiêng)
+    "workbench.startupEditor": "newUntitledFile", // Mở lên là vào trang trắng để code luôn, không hiện Welcome
+    // --- 4. TERMINAL (CỬA SỔ LỆNH) ---
+    "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.cursorBlinking": true, // Hiện bản đồ code nhỏ bên phải
+    "editor.minimap.renderCharacters": false, // Làm mờ chữ trong minimap để tăng hiệu năng
+    "window.titleBarStyle": "custom", // Thanh tiêu đề đồng bộ màu với theme
+    "breadcrumbs.enabled": true,
+    "workbench.iconTheme": "symbols",
+    "workbench.navigationControl.enabled": false,
+    "git.suggestSmartCommit": false,
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "ROOT"
+        }
+    ],
+    "mssql.autoDisableNonTSqlLanguageService": true,
+    "window.autoDetectColorScheme": true,
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "workbench.preferredDarkColorTheme": "Dark Modern",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "python": false
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "editor.minimap.enabled": false // Hiện đường dẫn thư mục trên đầu file
+}
