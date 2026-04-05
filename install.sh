@@ -32,11 +32,11 @@ echo "⚙️ Đang cấu hình bashrc..."
 rm -f ~/.bashrc
 ln -s "$DOTFILES_DIR/bash/.bashrc" ~/.bashrc
 
-# 6. Phục hồi MÃ NGUỒN GNOME Extensions (MỚI THÊM)
+# 6. Phục hồi MÃ NGUỒN GNOME Extensions
 echo "🧩 Đang nạp mã nguồn Extensions..."
 mkdir -p ~/.local/share/gnome-shell/extensions/
-# Bê toàn bộ các thư mục extension ông vừa nén dán vào máy mới
-cp -r "$DOTFILES_DIR/extensions/"* ~/.local/share/gnome-shell/extensions/
+# Thêm chữ gnome/ vào trước chữ extensions
+cp -r "$DOTFILES_DIR/gnome/extensions/"* ~/.local/share/gnome-shell/extensions/
 
 # 7. Bơm dữ liệu cấu hình GNOME & Bật Extension (Tuyệt chiêu cuối)
 echo "🧠 Đang áp dụng thiết lập hệ thống và kích hoạt Extension..."
