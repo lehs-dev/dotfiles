@@ -11,9 +11,8 @@ echo "🔑 Nhập mật khẩu để cài đặt các gói cần thiết:"
 sudo -v
 
 # 2. Cài đặt các phần mềm phụ trợ
-echo "📦 Đang cài đặt lsd, fastfetch, starship..."
-sudo dnf install -y lsd fastfetch dconf
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+echo "📦 Đang cài đặt fish, starship, lsd, fastfetch..."
+sudo dnf install -y fish starship lsd fastfetch util-linux-user dconf
 
 # 3. Thiết lập Hình nền
 echo "🖼️ Đang thiết lập hình nền..."
@@ -27,22 +26,32 @@ mkdir -p "$VSCODE_DIR"
 rm -f "$VSCODE_DIR/settings.json"
 ln -s "$DOTFILES_DIR/vscode/settings.json" "$VSCODE_DIR/settings.json"
 
-# 5. Thiết lập Bash
-echo "⚙️ Đang cấu hình bashrc..."
-rm -f ~/.bashrc
-ln -s "$DOTFILES_DIR/bash/.bashrc" ~/.bashrc
+# 5. Thiết lập Fish
+echo "🐟 Đang cấu hình Fish..."
+FISH_DIR="$HOME/.config/fish"
+mkdir -p "$FISH_DIR"
+rm -f "$FISH_DIR/config.fish"
+ln -s "$DOTFILES_DIR/fish/config.fish" "$FISH_DIR/config.fish"
 
-# 6. Phục hồi Mã nguồn Extensions
+# 6. Đặt Fish làm shell mặc định
+echo "🐚 Đang đặt Fish làm shell mặc định..."
+if [ -x /usr/bin/fish ]; then
+    chsh -s /usr/bin/fish
+else
+    echo "⚠️ Không tìm thấy /usr/bin/fish, bỏ qua bước đổi shell mặc định."
+fi
+
+# 7. Phục hồi Mã nguồn Extensions
 echo "🧩 Đang nạp mã nguồn Extensions..."
 mkdir -p ~/.local/share/gnome-shell/extensions/
 cp -r "$DOTFILES_DIR/gnome/extensions/"* ~/.local/share/gnome-shell/extensions/
 
-# 7. Mở khóa Extension an toàn cho GNOME
+# 8. Mở khóa Extension an toàn cho GNOME
 echo "🔓 Mở khóa tương thích Extension..."
 gsettings set org.gnome.shell disable-extension-version-validation true
 gsettings set org.gnome.shell disable-user-extensions false
 
-# 8. Bơm dữ liệu cấu hình GNOME (Tuyệt chiêu CHIA ĐỂ TRỊ)
+# 9. Bơm dữ liệu cấu hình GNOME (Tuyệt chiêu CHIA ĐỂ TRỊ)
 echo "🧠 Đang áp dụng thiết lập hệ thống (Bypass giới hạn dconf)..."
 TMP_DCONF="/tmp/gnome_patched.dconf"
 sed "s|/home/sonle|/home/$USER|g" "$DOTFILES_DIR/gnome/gnome_full_backup.dconf" > "$TMP_DCONF"
