@@ -1,0 +1,55 @@
+# Secret and session material must never enter this repository.
+**/auth.json
+**/*.keyring
+**/*.keystore
+**/key4.db
+**/cert9.db
+**/Cookies*
+**/Login Data*
+**/state.vscdb*
+**/workspaceStorage/**
+**/globalStorage/**
+**/accounts.conf
+**/pulse/cookie
+**/*history*
+**/*.sqlite*
+**/*.db*
+**/*.log
+**/*.pem
+**/*.key
+**/.env*
+secrets/
+
+# Never vendor private/runtime roots, even under the staged home/ tree.
+home/.codex/*
+!home/.codex/config.toml
+home/.config/BraveSoftware/
+home/.config/mozilla/
+home/.config/goa-1.0/
+home/.config/evolution/
+home/.config/pulse/
+home/.config/dconf/
+home/.local/state/
+home/.local/share/keyrings/
+home/.local/share/pki/
+home/.local/share/evolution/
+home/.cache/
+home/.var/
+home/.ssh/
+home/.gnupg/
+home/.netrc
+home/.npmrc
+home/**/credentials*
+home/**/*.p12
+home/**/*.pfx
+home/**/id_*
+
+# Monitor EDID/connector data is opt-in and should stay in a private remote.
+optional/device-specific/*
+
+# Generated GNOME schema caches are rebuilt on the target machine.
+**/gschemas.compiled
+
+# Local editor and OS noise.
+.DS_Store
+*~

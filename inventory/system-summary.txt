@@ -1,0 +1,7 @@
+NAME="Fedora Linux"
+VERSION="44 (Workstation Edition)"
+ID=fedora
+VERSION_ID=44
+GNOME Shell 50.4
+Kernel 7.1.8-200.fc44.x86_64
+Login shell /usr/bin/fish

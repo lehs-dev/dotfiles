@@ -1,0 +1,16 @@
+# Optional: install.sh only removes these with --prune-default-apps.
+gnome-boxes
+gnome-characters
+gnome-connections
+gnome-contacts
+gnome-font-viewer
+simple-scan
+mediawriter
+gnome-maps
+gnome-tour
+malcontent-control
+ibus-typing-booster
+ibus-hangul
+ibus-libpinyin
+ibus-m17n
+

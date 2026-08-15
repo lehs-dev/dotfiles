@@ -1,0 +1,11 @@
+repo id                                        repo name
+brave-browser                                  Brave Browser
+copr:copr.fedorainfracloud.org:atim:starship   Copr repo for starship owned by atim
+copr:copr.fedorainfracloud.org:phracek:PyCharm Copr repo for PyCharm owned by phracek
+fedora                                         Fedora 44 - x86_64
+fedora-cisco-openh264                          Fedora 44 openh264 (From Cisco) - x86_64
+gitlab.com_paulcarroty_vscodium_repo           gitlab.com_paulcarroty_vscodium_repo
+google-chrome                                  google-chrome
+rpmfusion-nonfree-nvidia-driver                RPM Fusion for Fedora 44 - Nonfree - NVIDIA Driver
+rpmfusion-nonfree-steam                        RPM Fusion for Fedora 44 - Nonfree - Steam
+updates                                        Fedora 44 - x86_64 - Updates

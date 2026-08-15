@@ -1,0 +1,6 @@
+# Enabled on the source machine but unused by any installed RPM.
+copr:copr.fedorainfracloud.org:phracek:PyCharm
+google-chrome
+rpmfusion-nonfree-nvidia-driver
+rpmfusion-nonfree-steam
+

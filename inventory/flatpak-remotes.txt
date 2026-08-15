@@ -1,0 +1,6 @@
+[system]
+fedora	Fedora Flatpaks	oci+https://registry.fedoraproject.org
+flathub	Flathub	https://dl.flathub.org/repo/
+
+[user]
+

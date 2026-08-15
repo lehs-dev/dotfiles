@@ -1,0 +1,5 @@
+# Inventory only. Reinstall/connect these from Codex after authenticating.
+canva@13.0.1
+openai-templates@0.1.1
+plugin-management@0.1.0
+

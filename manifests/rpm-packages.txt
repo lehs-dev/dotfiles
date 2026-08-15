@@ -1,0 +1,19 @@
+# Packages intentionally required by this setup. Dependencies are resolved by DNF.
+bat
+brave-browser
+codium
+curl
+fcitx5
+fcitx5-autostart
+fcitx5-configtool
+fcitx5-gtk
+fcitx5-unikey
+fish
+flatpak
+git
+gnome-tweaks
+jq
+lsd
+rsync
+starship
+unzip

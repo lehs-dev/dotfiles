@@ -1,0 +1,17 @@
+.bash_logout
+.bash_profile
+.bashrc
+.codex/config.toml
+.config/VSCodium/User/settings.json
+.config/environment.d/fcitx5.conf
+.config/fcitx5/config
+.config/fcitx5/profile
+.config/fcitx5/conf/keyboard.conf
+.config/fcitx5/conf/notifications.conf
+.config/fcitx5/conf/unikey.conf
+.config/fcitx5/conf/wayland.conf
+.config/fish/config.fish
+.local/share/backgrounds
+.local/share/sounds/__custom
+.vscode-oss/argv.json
+

@@ -1,0 +1,2 @@
+openai.chatgpt
+esbenp.prettier-vscode
